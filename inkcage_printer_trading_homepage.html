@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InkCage Printer Trading | Printers, Genuine Ink, Toners & School Supplies</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            800: '#0f172a', /* Deep Charcoal Navy */
+                            900: '#080e1a',
+                        },
+                        cyanAccent: {
+                            400: '#38bdf8',
+                            500: '#06b6d4',
+                            600: '#0891b2',
+                        },
+                        accent: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts Inter & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(8, 14, 26, 0.94) 0%, rgba(15, 23, 42, 0.92) 100%), 
+                        url('https://images.unsplash.com/photo-1612815150310-a02a1a0f5a12?auto=format&fit=crop&q=80&w=1600') center/cover no-repeat;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased flex flex-col min-h-screen">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-brand-900 text-slate-200 text-xs sm:text-sm py-2 px-4 text-center flex justify-between items-center max-w-full overflow-hidden">
+        <div class="container mx-auto flex justify-between items-center">
+            <span class="flex items-center gap-2">
+                <i class="fa-solid fa-print text-cyanAccent-400"></i>
+                <span class="hidden sm:inline">Official Partner:</span> <strong>Printer & Copier Rentals | Genuine Inks | Repair & School POs!</strong>
+            </span>
+            <div class="flex items-center gap-4">
+                <a href="tel:18005550199" class="hover:text-cyanAccent-400 transition-colors"><i class="fa-solid fa-phone text-xs mr-1"></i> (02) 8555-0199 / Sales & Rentals</a>
+                <span class="hidden md:inline">|</span>
+                <a href="#rentals" class="hidden md:inline hover:text-cyanAccent-400 transition-colors"><i class="fa-solid fa-copy text-xs mr-1"></i> Copier Leasing Plans</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between gap-4">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2.5 group">
+                <div class="w-10 h-10 bg-gradient-to-br from-brand-800 to-cyanAccent-600 rounded-xl flex items-center justify-center text-white text-xl font-black shadow-md group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-box-archive text-cyanAccent-400"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-black tracking-tight text-brand-800 block leading-none">INK<span class="text-cyanAccent-600">CAGE</span></span>
+                    <span class="text-[10px] text-slate-500 tracking-wider uppercase font-bold">Printers, Copiers & Supplies</span>
+                </div>
+            </a>
+
+            <!-- Search Bar (Desktop) -->
+            <div class="hidden lg:flex flex-1 max-w-md mx-4 relative">
+                <input type="text" placeholder="Search Copier Rentals, EcoTank, HP Toners, Photopaper..." 
+                    class="w-full pl-10 pr-4 py-2 bg-slate-100 border border-slate-200 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-cyanAccent-500 focus:bg-white transition-all">
+                <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-2.5 text-slate-400 text-sm"></i>
+            </div>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-700">
+                <a href="#home" class="text-cyanAccent-600 font-semibold hover:text-brand-800">Home</a>
+                <a href="#rentals" class="hover:text-cyanAccent-600 transition-colors font-bold text-brand-800">Rentals & Leasing</a>
+                <a href="#categories" class="hover:text-cyanAccent-600 transition-colors">Printers & Supplies</a>
+                <a href="#services" class="hover:text-cyanAccent-600 transition-colors">Repair & Service</a>
+                <a href="#b2b-features" class="hover:text-cyanAccent-600 transition-colors">School PO</a>
+            </nav>
+
+            <!-- Header Actions -->
+            <div class="flex items-center gap-3">
+                <!-- Quick Quote Trigger -->
+                <button onclick="toggleModal(true)" class="hidden sm:flex items-center gap-2 bg-brand-800 hover:bg-slate-900 text-white text-xs sm:text-sm font-semibold px-4 py-2.5 rounded-lg shadow-sm hover:shadow transition-all">
+                    <i class="fa-solid fa-file-invoice text-accent-400"></i>
+                    <span>Get Quote</span>
+                </button>
+
+                <!-- Inquiry Cart Icon -->
+                <button onclick="toggleCartModal()" class="relative p-2 text-slate-700 hover:text-cyanAccent-600 rounded-lg hover:bg-slate-100 transition-colors" title="Inquiry Cart">
+                    <i class="fa-solid fa-cart-flatbed text-xl"></i>
+                    <span id="cart-count" class="absolute -top-1 -right-1 bg-accent-500 text-slate-900 text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-700 hover:bg-slate-100 rounded-lg focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3">
+            <div class="relative my-2">
+                <input type="text" placeholder="Search ink, printers, paper..." 
+                    class="w-full pl-10 pr-4 py-2 bg-slate-100 border border-slate-200 rounded-lg text-sm focus:outline-none">
+                <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-2.5 text-slate-400 text-sm"></i>
+            </div>
+            <a href="#home" class="block py-2 text-slate-800 font-medium hover:text-cyanAccent-600">Home</a>
+            <a href="#rentals" class="block py-2 text-brand-800 font-bold hover:text-cyanAccent-600">Printer & Copier Rentals</a>
+            <a href="#categories" class="block py-2 text-slate-800 font-medium hover:text-cyanAccent-600">Printers & Supplies</a>
+            <a href="#services" class="block py-2 text-slate-800 font-medium hover:text-cyanAccent-600">Repair & Maintenance</a>
+            <a href="#b2b-features" class="block py-2 text-slate-800 font-medium hover:text-cyanAccent-600">School & Corporate Procurement</a>
+            <a href="#contact" class="block py-2 text-slate-800 font-medium hover:text-cyanAccent-600">Contact InkCage</a>
+            <button onclick="toggleModal(true)" class="w-full mt-2 bg-cyanAccent-600 text-white font-semibold py-2.5 rounded-lg text-center">
+                Request Custom Bulk Quote
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg text-white py-16 lg:py-24 relative overflow-hidden">
+        <div class="container mx-auto px-4 grid md:grid-cols-12 gap-8 items-center">
+            <div class="md:col-span-7 space-y-6 text-center md:text-left">
+                <div class="inline-flex items-center gap-2 bg-cyanAccent-600/20 backdrop-blur-md border border-cyanAccent-500/30 text-cyanAccent-400 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide">
+                    <i class="fa-solid fa-shield-halved"></i> Authorised Rentals, Supplies & Printer Sales
+                </div>
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                    Zero-Maintenance <span class="text-cyanAccent-400">Printer & Copier Rentals</span> plus School Supplies
+                </h1>
+                <p class="text-slate-300 text-base sm:text-lg max-w-2xl font-light">
+                    InkCage Printer Trading provides flexible monthly printer & heavy-duty copier rentals with <strong>FREE ink refills and full maintenance</strong> alongside sales of original inks, toners, and paper reams.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-2">
+                    <a href="#rentals" class="bg-cyanAccent-500 hover:bg-cyanAccent-600 text-slate-900 font-bold px-6 py-3.5 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 text-base">
+                        <i class="fa-solid fa-copy"></i> Explore Rental Plans
+                    </a>
+                    <a href="#categories" class="bg-white/10 hover:bg-white/20 text-white border border-white/30 font-semibold px-6 py-3.5 rounded-xl backdrop-blur-sm transition-all flex items-center justify-center gap-2 text-base">
+                        <i class="fa-solid fa-boxes-packing text-accent-400"></i> Browse Product Catalog
+                    </a>
+                </div>
+                <!-- Trust Badges -->
+                <div class="pt-6 border-t border-slate-800 grid grid-cols-3 gap-4 text-xs text-slate-300">
+                    <div class="flex items-center gap-2 justify-center md:justify-start">
+                        <i class="fa-solid fa-hand-holding-droplet text-cyanAccent-400 text-base"></i>
+                        <span>Free Ink/Toner Refills</span>
+                    </div>
+                    <div class="flex items-center gap-2 justify-center md:justify-start">
+                        <i class="fa-solid fa-screwdriver-wrench text-cyanAccent-400 text-base"></i>
+                        <span>Zero Repair Costs</span>
+                    </div>
+                    <div class="flex items-center gap-2 justify-center md:justify-start">
+                        <i class="fa-solid fa-rotate-right text-cyanAccent-400 text-base"></i>
+                        <span>Standby Backup Printers</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quick Ink & Printer Calculator Widget -->
+            <div class="md:col-span-5 bg-white text-slate-800 p-6 sm:p-8 rounded-2xl shadow-2xl border border-slate-100">
+                <h3 class="text-xl font-bold text-brand-800 mb-1 flex items-center gap-2">
+                    <i class="fa-solid fa-calculator text-cyanAccent-600"></i> Rental vs Buying Estimator
+                </h3>
+                <p class="text-xs text-slate-500 mb-5">Compare monthly rental costs including unlimited ink & service vs buying.</p>
+                
+                <form id="hero-calc-form" onsubmit="event.preventDefault(); calculateInkEstimate();" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Service Type Needed</label>
+                        <select id="calc-printer" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-cyanAccent-500 outline-none">
+                            <option value="rental_desktop">Desktop Printer Rental (A4 All-in-One)</option>
+                            <option value="rental_copier">Heavy-Duty Copier Rental (A3/A4 Multi-function)</option>
+                            <option value="ecotank">Buy Printer outright + Supplies</option>
+                            <option value="school_bundle">Complete School / Exam Center Rental Fleet</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Est. Monthly Page Volume</label>
+                        <input type="number" id="calc-reams" min="1000" step="500" value="3000" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-cyanAccent-500 outline-none">
+                    </div>
+                    <div class="p-3 bg-brand-50 rounded-lg border border-brand-100 flex justify-between items-center">
+                        <div>
+                            <span class="text-[11px] font-semibold text-slate-500 block">Recommended Solution:</span>
+                            <span id="calc-solution" class="text-xs font-bold text-brand-800">Medium Office Rental Plan</span>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-[10px] text-slate-400 block">Est. Rental / Month</span>
+                            <span id="calc-result" class="text-base font-black text-cyanAccent-600">$49.00</span>
+                        </div>
+                    </div>
+                    <button type="submit" class="w-full bg-brand-800 hover:bg-slate-900 text-white text-sm font-bold py-3 rounded-lg transition-colors">
+                        Calculate Plan Recommendation
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Printer & Copier Rental / Leasing Section -->
+    <section id="rentals" class="py-16 bg-slate-900 text-white relative overflow-hidden">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="bg-cyanAccent-500/20 text-cyanAccent-400 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Hassle-Free Leasing</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3">Printer & Heavy-Duty Copier Rentals</h2>
+                <p class="text-slate-300 mt-2 text-sm">Eliminate capital expenditures and maintenance headaches. Get high-speed printing, scanning, and copying machines for your school or office with all consumables included.</p>
+            </div>
+
+            <!-- Key Rental Benefits Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+                <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700 text-center">
+                    <i class="fa-solid fa-droplet text-cyanAccent-400 text-2xl mb-2"></i>
+                    <h4 class="font-bold text-xs uppercase text-slate-200">Free Inks & Toners</h4>
+                    <p class="text-[11px] text-slate-400 mt-1">Free refills delivered on schedule or upon request.</p>
+                </div>
+                <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700 text-center">
+                    <i class="fa-solid fa-screwdriver-wrench text-cyanAccent-400 text-2xl mb-2"></i>
+                    <h4 class="font-bold text-xs uppercase text-slate-200">Zero Repair Bills</h4>
+                    <p class="text-[11px] text-slate-400 mt-1">All wear and tear, parts, and maintenance covered.</p>
+                </div>
+                <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700 text-center">
+                    <i class="fa-solid fa-truck-medical text-cyanAccent-400 text-2xl mb-2"></i>
+                    <h4 class="font-bold text-xs uppercase text-slate-200">Standby Backup Units</h4>
+                    <p class="text-[11px] text-slate-400 mt-1">Immediate replacement unit if repairs take over 24 hrs.</p>
+                </div>
+                <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700 text-center">
+                    <i class="fa-solid fa-sliders text-cyanAccent-400 text-2xl mb-2"></i>
+                    <h4 class="font-bold text-xs uppercase text-slate-200">Flexible Monthly Terms</h4>
+                    <p class="text-[11px] text-slate-400 mt-1">Short-term exam rentals or annual institutional contracts.</p>
+                </div>
+            </div>
+
+            <!-- Rental Pricing Tiers -->
+            <div class="grid lg:grid-cols-3 gap-8 mb-16">
+                <!-- Tier 1 -->
+                <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700 flex flex-col justify-between hover:border-cyanAccent-500/50 transition-all">
+                    <div>
+                        <span class="text-xs font-bold text-cyanAccent-400 uppercase tracking-widest">Desktop / Faculty Plan</span>
+                        <h3 class="text-2xl font-bold text-white mt-1">Compact All-In-One</h3>
+                        <p class="text-xs text-slate-400 mt-1">Ideal for small school departments, faculty rooms, and administrative desks.</p>
+                        <div class="my-6 p-4 bg-slate-900/60 rounded-xl border border-slate-700">
+                            <span class="text-3xl font-black text-white">$29</span>
+                            <span class="text-xs text-slate-400">/ month</span>
+                            <p class="text-[11px] text-cyanAccent-400 font-semibold mt-1"><i class="fa-solid fa-check mr-1"></i> Includes 2,000 prints / month</p>
+                        </div>
+                        <ul class="space-y-2.5 text-xs text-slate-300">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyanAccent-400"></i> High-speed Color CISS InkTank Printer</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyanAccent-400"></i> Print, Scan, Copy & Auto-ADF</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyanAccent-400"></i> Unlimited Dye Ink Replenishment</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyanAccent-400"></i> Free Next-Day On-Site Technician Visit</li>
+                        </ul>
+                    </div>
+                    <button onclick="requestRentalPlan('Desktop / Faculty Plan ($29/mo)')" class="w-full mt-6 bg-slate-700 hover:bg-cyanAccent-500 hover:text-slate-900 text-white font-bold py-3 rounded-xl transition-all text-xs">
+                        Select Desktop Rental Plan
+                    </button>
+                </div>
+
+                <!-- Tier 2 (Popular) -->
+                <div class="bg-slate-800 rounded-2xl p-6 border-2 border-cyanAccent-500 relative flex flex-col justify-between shadow-2xl scale-105">
+                    <span class="absolute -top-3 right-6 bg-cyanAccent-500 text-slate-900 font-extrabold text-[10px] uppercase px-3 py-1 rounded-full">Most Popular for Schools</span>
+                    <div>
+                        <span class="text-xs font-bold text-cyanAccent-400 uppercase tracking-widest">Exam Center & High Volume</span>
+                        <h3 class="text-2xl font-bold text-white mt-1">Heavy-Duty Workgroup</h3>
+                        <p class="text-xs text-slate-400 mt-1">Designed for high-speed examination printing, modules, and heavy faculty workloads.</p>
+                        <div class="my-6 p-4 bg-slate-900/80 rounded-xl border border-slate-700">
+                            <span class="text-3xl font-black text-white">$69</span>
+                            <span class="text-xs text-slate-400">/ month</span>
+                            <p class="text-[11px] text-cyanAccent-400 font-semibold mt-1"><i class="fa-solid fa-check mr-1"></i> Includes 8,000 prints / month</p>
+                        </div>
+                        <ul class="space-y-2.5 text-xs text-slate-300">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyanAccent-400"></i> Heavy-Duty A4 Workgroup Printer / Duplex</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyanAccent-400"></i> High-Speed 35 PPM Printing</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyanAccent-400"></i> Free Genuine High-Yield Ink / Toner</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyanAccent-400"></i> Priority 4-Hour Emergency Service SLA</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyanAccent-400"></i> Automatic Standby Backup Machine</li>
+                        </ul>
+                    </div>
+                    <button onclick="requestRentalPlan('Heavy-Duty Workgroup Plan ($69/mo)')" class="w-full mt-6 bg-cyanAccent-500 hover:bg-cyanAccent-600 text-slate-900 font-extrabold py-3 rounded-xl transition-all text-xs">
+                        Select Exam Workgroup Plan
+                    </button>
+                </div>
+
+                <!-- Tier 3 -->
+                <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700 flex flex-col justify-between hover:border-cyanAccent-500/50 transition-all">
+                    <div>
+                        <span class="text-xs font-bold text-cyanAccent-400 uppercase tracking-widest">Enterprise / Main Office</span>
+                        <h3 class="text-2xl font-bold text-white mt-1">A3 Digital Copier Fleet</h3>
+                        <p class="text-xs text-slate-400 mt-1">Commercial grade floor-standing A3/A4 multifunction copiers for whole school campuses.</p>
+                        <div class="my-6 p-4 bg-slate-900/60 rounded-xl border border-slate-700">
+                            <span class="text-3xl font-black text-white">$129</span>
+                            <span class="text-xs text-slate-400">/ month</span>
+                            <p class="text-[11px] text-cyanAccent-400 font-semibold mt-1"><i class="fa-solid fa-check mr-1"></i> Includes 18,000 prints / month</p>
+                        </div>
+                        <ul class="space-y-2.5 text-xs text-slate-300">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyanAccent-400"></i> Floor-standing A3/A4 Heavy Copier</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyanAccent-400"></i> Departmental PIN Code Printing & Scanning</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyanAccent-400"></i> Network Ethernet / Wireless Fleet Ready</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyanAccent-400"></i> Scheduled Preventive Maintenance & Drum care</li>
+                        </ul>
+                    </div>
+                    <button onclick="requestRentalPlan('A3 Digital Copier Fleet ($129/mo)')" class="w-full mt-6 bg-slate-700 hover:bg-cyanAccent-500 hover:text-slate-900 text-white font-bold py-3 rounded-xl transition-all text-xs">
+                        Request Custom Copier Fleet Quote
+                    </button>
+                </div>
+            </div>
+
+            <!-- Detailed Rental Cost Estimator Calculator -->
+            <div class="bg-slate-800/90 rounded-2xl p-6 sm:p-8 border border-slate-700 max-w-4xl mx-auto">
+                <div class="text-center mb-6">
+                    <h3 class="text-xl font-bold text-white flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-sliders text-cyanAccent-400"></i> Custom Rental Cost Estimator
+                    </h3>
+                    <p class="text-xs text-slate-400 mt-1">Adjust parameters below to estimate customized institutional monthly rental charges.</p>
+                </div>
+
+                <div class="grid sm:grid-cols-3 gap-4 mb-6">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 uppercase mb-2">Monthly Page Volume</label>
+                        <select id="rent-calc-volume" onchange="calculateCustomRental()" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-xs text-white outline-none focus:border-cyanAccent-400">
+                            <option value="3000">Up to 3,000 pages</option>
+                            <option value="8000" selected>Up to 8,000 pages</option>
+                            <option value="15000">Up to 15,000 pages</option>
+                            <option value="30000">30,000+ pages (Multi-Copier)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 uppercase mb-2">Print Color Ratio</label>
+                        <select id="rent-calc-color" onchange="calculateCustomRental()" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-xs text-white outline-none focus:border-cyanAccent-400">
+                            <option value="mono">100% Monochrome / Black</option>
+                            <option value="mixed" selected>70% Mono / 30% Color</option>
+                            <option value="fullcolor">High Color Usage (Art/Design)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 uppercase mb-2">Paper Size Capability</label>
+                        <select id="rent-calc-size" onchange="calculateCustomRental()" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-xs text-white outline-none focus:border-cyanAccent-400">
+                            <option value="a4" selected>Standard A4 / Short / Long</option>
+                            <option value="a3">Heavy-Duty A3 & A4 Multi-Tray</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 p-4 rounded-xl border border-slate-700 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div>
+                        <span class="text-xs text-slate-400 block">Estimated Customized Plan:</span>
+                        <span id="rent-plan-name" class="text-sm font-bold text-cyanAccent-400">Workgroup Heavy-Duty Package</span>
+                    </div>
+                    <div class="text-center sm:text-right">
+                        <span class="text-xs text-slate-400 block">Est. All-Inclusive Rate</span>
+                        <span id="rent-plan-price" class="text-2xl font-black text-white">$69.00 <span class="text-xs text-slate-400 font-normal">/ month</span></span>
+                    </div>
+                    <button onclick="applyEstimatedRental()" class="bg-cyanAccent-500 hover:bg-cyanAccent-600 text-slate-900 font-bold px-5 py-2.5 rounded-lg text-xs transition-colors">
+                        Book Demo / Rent This Plan
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Category Showcase -->
+    <section id="categories" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-cyanAccent-600 font-bold text-xs uppercase tracking-wider">Supplies & Purchase Catalog</span>
+                <h2 class="text-3xl font-extrabold text-brand-800 tracking-tight mt-1">Printers, Inks, Paper & Stationery</h2>
+                <p class="text-slate-600 mt-2 text-sm">Genuine consumables, durable machines, and academic stationeries for outright purchase.</p>
+                
+                <!-- Category Filter Buttons -->
+                <div class="flex flex-wrap justify-center gap-2 mt-6" id="filter-container">
+                    <button onclick="filterCategory('all')" class="filter-btn active bg-brand-800 text-white px-4 py-2 rounded-full text-xs font-semibold transition-all">All Products</button>
+                    <button onclick="filterCategory('printers')" class="filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2 rounded-full text-xs font-semibold transition-all">Printers & Copiers</button>
+                    <button onclick="filterCategory('inks')" class="filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2 rounded-full text-xs font-semibold transition-all">Inks & Toners</button>
+                    <button onclick="filterCategory('paper')" class="filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2 rounded-full text-xs font-semibold transition-all">Paper & Photopaper</button>
+                    <button onclick="filterCategory('stationery')" class="filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2 rounded-full text-xs font-semibold transition-all">School Supplies</button>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="product-grid">
+                <!-- Dynamically populated products -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Services / Printer Maintenance Section -->
+    <section id="services" class="py-16 bg-slate-900 text-white">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <span class="bg-cyanAccent-500/20 text-cyanAccent-400 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Technical Expertise</span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-white leading-tight">
+                        Printer Maintenance, CISS Conversion & Repairs
+                    </h2>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Don't let printer downtime disrupt exams or office operations. InkCage Printer Trading offers certified technical diagnostics, head cleaning, CISS ink system conversion, and regular preventive maintenance contracts for schools and corporate offices.
+                    </p>
+                    <div class="space-y-3">
+                        <div class="flex items-start gap-3">
+                            <div class="p-2 bg-cyanAccent-600/30 rounded-lg text-cyanAccent-400 mt-1"><i class="fa-solid fa-gears"></i></div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Printhead Unclogging & Cleaning</h4>
+                                <p class="text-xs text-slate-400">Restores crisp text and color fidelity using specialized ultrasonic flush techniques.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="p-2 bg-cyanAccent-600/30 rounded-lg text-cyanAccent-400 mt-1"><i class="fa-solid fa-droplet"></i></div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Continuous Ink (CISS) Installation</h4>
+                                <p class="text-xs text-slate-400">Convert cartridge printers into high-yield, low-cost continuous ink tank systems.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="p-2 bg-cyanAccent-600/30 rounded-lg text-cyanAccent-400 mt-1"><i class="fa-solid fa-file-contract"></i></div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Quarterly School SLA Contracts</h4>
+                                <p class="text-xs text-slate-400">Priority emergency servicing and complimentary standby backup printers.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800 p-6 sm:p-8 rounded-2xl border border-slate-700 shadow-xl">
+                    <h3 class="text-xl font-bold text-white mb-2">Book a Service Technician</h3>
+                    <p class="text-xs text-slate-400 mb-6">In-shop repair or on-site service visit request.</p>
+                    <form onsubmit="handleServiceSubmit(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">Organization / Name</label>
+                            <input type="text" required placeholder="e.g. St. Thomas High School" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm text-white focus:outline-none focus:border-cyanAccent-500">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 mb-1">Printer Brand & Model</label>
+                                <input type="text" required placeholder="e.g. Epson L3210" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm text-white focus:outline-none focus:border-cyanAccent-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 mb-1">Issue Type</label>
+                                <select class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm text-white focus:outline-none focus:border-cyanAccent-500">
+                                    <option>Paper Jam / Roller Issue</option>
+                                    <option>Blank / Streaked Output</option>
+                                    <option>CISS Tank Conversion</option>
+                                    <option>General Maintenance</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">Contact Phone Number</label>
+                            <input type="tel" required placeholder="(0917) 000-0000" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm text-white focus:outline-none focus:border-cyanAccent-500">
+                        </div>
+                        <button type="submit" class="w-full bg-cyanAccent-500 hover:bg-cyanAccent-600 text-slate-900 font-extrabold py-3 rounded-lg text-sm transition-all">
+                            Schedule Technical Service
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wholesale & School Procurement Section -->
+    <section id="b2b-features" class="py-16 bg-slate-100 border-y border-slate-200">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-cyanAccent-600 font-bold text-xs uppercase tracking-wider">Institutional Trading</span>
+                <h2 class="text-3xl font-extrabold text-brand-800 mt-1">Institutional B2B & School PO Benefits</h2>
+                <p class="text-slate-600 text-sm mt-2">Why faculties, academies, and business administrators rely on InkCage Printer Trading.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-cyanAccent-500/10 rounded-lg flex items-center justify-center text-cyanAccent-600 text-xl font-bold mb-4">
+                        <i class="fa-solid fa-stamp"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Government & School POs</h3>
+                    <p class="text-slate-600 text-sm">Flexible payment windows (Net 30/60 days) with complete BIR and tax compliance documentation.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-cyanAccent-500/10 rounded-lg flex items-center justify-center text-cyanAccent-600 text-xl font-bold mb-4">
+                        <i class="fa-solid fa-boxes-packing"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Classroom Supply Kits</h3>
+                    <p class="text-slate-600 text-sm">Custom pre-packaged student stationery kits sorted by grade level and teacher requirements.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-cyanAccent-500/10 rounded-lg flex items-center justify-center text-cyanAccent-600 text-xl font-bold mb-4">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">100% Genuine Guarantee</h3>
+                    <p class="text-slate-600 text-sm">Direct factory partnerships for original dye ink, pigment ink, high-yield toner cartridges, and original parts.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-cyanAccent-500/10 rounded-lg flex items-center justify-center text-cyanAccent-600 text-xl font-bold mb-4">
+                        <i class="fa-solid fa-truck-ramp-box"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Bulk Logistics</h3>
+                    <p class="text-slate-600 text-sm">Free warehouse delivery for paper reams, bulk inks, and heavy-duty office machinery orders.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Quote / Purchase Order Request Form -->
+    <section id="quote" class="py-16 bg-white">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="bg-gradient-to-br from-brand-800 to-slate-900 rounded-2xl p-8 sm:p-12 text-white shadow-2xl border border-slate-800">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Request Wholesale Quotation or Official PO</h2>
+                    <p class="text-slate-300 text-sm mt-2">Get discounted pricing for bulk ink orders, printer fleets, and academic paper reams.</p>
+                </div>
+
+                <form id="main-quote-form" onsubmit="handleQuoteSubmit(event)" class="space-y-4">
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">School / Company Name *</label>
+                            <input type="text" required placeholder="e.g. Horizon Academy Philippines" class="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyanAccent-400">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">Purchasing Officer Name *</label>
+                            <input type="text" required placeholder="e.g. Mark Santos" class="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyanAccent-400">
+                        </div>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">Official Email Address *</label>
+                            <input type="email" required placeholder="purchasing@horizon.edu.ph" class="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyanAccent-400">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">Contact Phone</label>
+                            <input type="tel" placeholder="(02) 8000-0000" class="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyanAccent-400">
+                        </div>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">Primary Product Focus</label>
+                            <select class="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyanAccent-400">
+                                <option class="text-slate-900">Bulk Inks & Toners</option>
+                                <option class="text-slate-900">EcoTank / Laser Printers Fleet</option>
+                                <option class="text-slate-900">Copy Paper & Photopaper Reams</option>
+                                <option class="text-slate-900">Student & Classroom Stationery Kits</option>
+                                <option class="text-slate-900">Printer Repair SLA Contract</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">Payment Method</label>
+                            <select class="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyanAccent-400">
+                                <option class="text-slate-900">School Purchase Order (Net 30)</option>
+                                <option class="text-slate-900">Direct Invoice / Bank Transfer</option>
+                                <option class="text-slate-900">Government Procurement / Cash</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1">Itemized Supply Details & Quantities</label>
+                        <textarea rows="3" placeholder="List model numbers, ink codes (e.g. 003, 664, HP 85A), reams, or general supplies needed..." class="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyanAccent-400"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-cyanAccent-500 hover:bg-cyanAccent-600 text-slate-900 font-extrabold py-3.5 rounded-lg shadow-md transition-all text-base mt-2">
+                        Submit Official Wholesale Quotation
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 bg-slate-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-cyanAccent-600 font-bold text-xs uppercase tracking-wider">Trusted Trading Partner</span>
+                <h2 class="text-3xl font-extrabold text-brand-800 mt-1">Client Feedback</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <p class="text-slate-600 text-sm italic mb-4">
+                        "InkCage has been supplying our school's faculty with 003 inks and copy paper reams for 2 years. Their CISS conversions saved our printing budget by 40%!"
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+                        <div class="w-10 h-10 bg-brand-800 text-cyanAccent-400 rounded-full flex items-center justify-center font-bold text-sm">
+                            GV
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-slate-900">Gabriel Ramos</h4>
+                            <p class="text-xs text-slate-500">IT Director, City Academy</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <p class="text-slate-600 text-sm italic mb-4">
+                        "When our high-volume exam printer clogged, InkCage sent a technician within 3 hours. Fast, reliable, and genuine products every time."
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+                        <div class="w-10 h-10 bg-cyanAccent-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                            AC
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-slate-900">Ana Cruz</h4>
+                            <p class="text-xs text-slate-500">Administrative Head, West College</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <p class="text-slate-600 text-sm italic mb-4">
+                        "Their customized student stationery bundles made enrollment distribution effortless for teachers and parents. Highly recommended!"
+                    </p>
+                    <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+                        <div class="w-10 h-10 bg-accent-500 text-slate-900 rounded-full flex items-center justify-center font-bold text-sm">
+                            LR
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-slate-900">Lourdes Reyes</h4>
+                            <p class="text-xs text-slate-500">Procurement Officer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-brand-900 text-slate-300 mt-auto">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- Company Info -->
+                <div class="space-y-3">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 bg-cyanAccent-500 rounded-lg flex items-center justify-center text-slate-900 font-black">
+                            <i class="fa-solid fa-box-archive"></i>
+                        </div>
+                        <span class="text-lg font-extrabold text-white tracking-tight">INKCAGE TRADING</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Premier supplier of EcoTank & Laser Printers, Genuine Inks, Toners, CISS Conversions, Heavy-Duty Paper, and School Supplies.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+            <div>
+                <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-3">Products & Rentals</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#rentals" class="hover:text-cyanAccent-400 transition-colors">Copier & Printer Rental Plans</a></li>
+                    <li><a href="#categories" class="hover:text-cyanAccent-400 transition-colors">Epson & Canon Ink Bottles</a></li>
+                    <li><a href="#categories" class="hover:text-cyanAccent-400 transition-colors">Laser Toner Cartridges</a></li>
+                    <li><a href="#categories" class="hover:text-cyanAccent-400 transition-colors">A4 / Legal Copy Paper Reams</a></li>
+                    <li><a href="#services" class="hover:text-cyanAccent-400 transition-colors">Printer Maintenance & CISS</a></li>
+                </ul>
+            </div>
+
+                <!-- Product Categories -->
+                <div>
+                    <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-3">School Procurement</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#quote" class="hover:text-cyanAccent-400 transition-colors">Submit School PO</a></li>
+                        <li><a href="#b2b-features" class="hover:text-cyanAccent-400 transition-colors">Student Supply Kits</a></li>
+                        <li><a href="#quote" class="hover:text-cyanAccent-400 transition-colors">Bulk Volume Discounts</a></li>
+                        <li><a href="#contact" class="hover:text-cyanAccent-400 transition-colors">BIR Registered Vendor Info</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-3">Trading Hub</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-cyanAccent-400"></i> InkCage Trading Depot, Manila</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-envelope text-cyanAccent-400"></i> sales@inkcagetrading.com</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-phone text-cyanAccent-400"></i> (02) 8555-0199 / 0917-123-4567</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-clock text-cyanAccent-400"></i> Mon - Sat: 8:00 AM - 6:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-6 border-t border-slate-800 text-xs text-center md:flex md:justify-between text-slate-500">
+                <p>&copy; 2026 InkCage Printer Trading. All rights reserved.</p>
+                <div class="flex justify-center gap-4 mt-2 md:mt-0">
+                    <a href="#" class="hover:text-white"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="hover:text-white"><i class="fa-brands fa-viber"></i></a>
+                    <a href="#" class="hover:text-white"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Quote Modal -->
+    <div id="quote-modal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl relative">
+            <button onclick="toggleModal(false)" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <h3 class="text-xl font-bold text-brand-800 mb-1">Quick Quotation Request</h3>
+            <p class="text-xs text-slate-500 mb-4">InkCage Sales Team will send a formal offer within 24 hours.</p>
+            
+            <form onsubmit="handleModalSubmit(event)" class="space-y-3">
+                <input type="text" required placeholder="School / Business Name" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-cyanAccent-500 outline-none">
+                <input type="email" required placeholder="Email Address" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-cyanAccent-500 outline-none">
+                <select class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-cyanAccent-500 outline-none">
+                    <option>Product Needed: Genuine Inks & Toners</option>
+                    <option>Product Needed: EcoTank / CISS Printers</option>
+                    <option>Product Needed: Paper Reams & School Supplies</option>
+                    <option>Service Needed: Printer Diagnostics / Repair</option>
+                </select>
+                <textarea rows="3" placeholder="Specify quantity, ink codes, or school requirements..." class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-cyanAccent-500 outline-none"></textarea>
+                <button type="submit" class="w-full bg-brand-800 hover:bg-slate-900 text-white font-bold py-3 rounded-lg text-sm transition-colors">
+                    Send Price Request
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Inquiry Cart Modal -->
+    <div id="cart-modal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl relative">
+            <button onclick="toggleCartModal(false)" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <h3 class="text-xl font-bold text-brand-800 mb-1 flex items-center gap-2">
+                <i class="fa-solid fa-cart-flatbed text-cyanAccent-600"></i> Quote Inquiry Items
+            </h3>
+            <p class="text-xs text-slate-500 mb-4">Items selected for bulk pricing quote</p>
+            
+            <div id="cart-items" class="space-y-3 max-h-60 overflow-y-auto mb-4 border-y border-slate-100 py-3">
+                <p class="text-xs text-slate-400 text-center py-4">No items added to quote inquiry list yet.</p>
+            </div>
+
+            <div class="flex gap-2">
+                <button onclick="clearCart()" class="w-1/3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-2.5 rounded-lg text-xs">Clear</button>
+                <button onclick="submitCartInquiry()" class="w-2/3 bg-cyanAccent-500 hover:bg-cyanAccent-600 text-slate-900 font-bold py-2.5 rounded-lg text-xs">Request Quotation for Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-4 right-4 bg-slate-900 text-white px-4 py-3 rounded-xl shadow-lg hidden flex items-center gap-3 z-50 text-sm border border-slate-700">
+        <i class="fa-solid fa-circle-check text-cyanAccent-400"></i>
+        <span id="toast-message">Action successful!</span>
+    </div>
+
+    <!-- JavaScript Logic tailored for InkCage Printer Trading -->
+    <script>
+        // Printer & Ink Products
+        const products = [
+            { id: 1, category: 'printers', name: 'Epson EcoTank L3210 All-in-One Printer', price: '$185.00', minOrder: '1 Unit', image: 'https://images.unsplash.com/photo-1612815150310-a02a1a0f5a12?auto=format&fit=crop&q=80&w=400' },
+            { id: 2, category: 'inks', name: 'Genuine Epson 003 Refill Ink Bottles Set (CMYK)', price: '$28.00', minOrder: '5 Sets', image: 'https://images.unsplash.com/photo-1585336261026-8f5786372966?auto=format&fit=crop&q=80&w=400' },
+            { id: 3, category: 'inks', name: 'HP 85A Black Laserjet Toner Cartridge', price: '$42.00', minOrder: '2 Units', image: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=400' },
+            { id: 4, category: 'paper', name: 'Substance 20 80GSM A4 Multipurpose Copy Paper', price: '$24.50 / Box', minOrder: '5 Boxes (25 Reams)', image: 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&q=80&w=400' },
+            { id: 5, category: 'printers', name: 'Canon Pixma G3010 Wi-Fi Ink Tank Printer', price: '$195.00', minOrder: '1 Unit', image: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&q=80&w=400' },
+            { id: 6, category: 'paper', name: 'Glossy Heavyweight Photopaper 230gsm (100 Sheets)', price: '$9.50', minOrder: '10 Packs', image: 'https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&q=80&w=400' },
+            { id: 7, category: 'stationery', name: 'Classroom Exam & Teacher Supply Bundle', price: '$35.00', minOrder: '10 Kits', image: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80&w=400' },
+            { id: 8, category: 'inks', name: 'Universal Dye Ink Refill 1 Liter (Cyan/Mag/Yel/Blk)', price: '$12.00 / Bottle', minOrder: '4 Bottles', image: 'https://images.unsplash.com/photo-1596495578065-6e0763fa1178?auto=format&fit=crop&q=80&w=400' }
+        ];
+
+        let cart = [];
+
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Custom Rental Estimator Logic
+        function calculateCustomRental() {
+            const vol = parseInt(document.getElementById('rent-calc-volume').value);
+            const color = document.getElementById('rent-calc-color').value;
+            const size = document.getElementById('rent-calc-size').value;
+
+            let price = 29;
+            let planName = "Compact Faculty Plan";
+
+            if (vol === 3000) {
+                price = color === 'mono' ? 25 : (color === 'fullcolor' ? 39 : 29);
+                planName = "Compact Faculty / Small Office Plan";
+            } else if (vol === 8000) {
+                price = color === 'mono' ? 55 : (color === 'fullcolor' ? 85 : 69);
+                planName = "Heavy-Duty Exam Workgroup Plan";
+            } else if (vol === 15000) {
+                price = color === 'mono' ? 95 : (color === 'fullcolor' ? 145 : 119);
+                planName = "Departmental High-Speed Plan";
+            } else {
+                price = color === 'mono' ? 160 : (color === 'fullcolor' ? 240 : 199);
+                planName = "A3 Commercial Copier Fleet Plan";
+            }
+
+            if (size === 'a3') {
+                price += 35;
+                planName += " (A3 Multi-Tray)";
+            }
+
+            document.getElementById('rent-plan-name').innerText = planName;
+            document.getElementById('rent-plan-price').innerHTML = `$${price}.00 <span class="text-xs text-slate-400 font-normal">/ month</span>`;
+        }
+
+        function requestRentalPlan(planDetails) {
+            toggleModal(true);
+            showToast(`Selected ${planDetails}. Please complete contact details.`);
+        }
+
+        function applyEstimatedRental() {
+            const plan = document.getElementById('rent-plan-name').innerText;
+            const price = document.getElementById('rent-plan-price').innerText;
+            toggleModal(true);
+            showToast(`Inquiring for: ${plan} (${price})`);
+        }
+
+        // Render Products
+        function renderProducts(items) {
+            const grid = document.getElementById('product-grid');
+            grid.innerHTML = items.map(product => `
+                <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col group">
+                    <div class="relative h-48 bg-slate-100 overflow-hidden">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <span class="absolute top-2 right-2 bg-brand-900/90 backdrop-blur-md text-cyanAccent-400 text-[10px] font-bold px-2 py-1 rounded">
+                            MOQ: ${product.minOrder}
+                        </span>
+                    </div>
+                    <div class="p-4 flex flex-col flex-1 justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-cyanAccent-600">${product.category}</span>
+                            <h4 class="font-bold text-slate-900 text-sm mt-1 group-hover:text-cyanAccent-600 transition-colors">${product.name}</h4>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+                            <div>
+                                <span class="text-xs text-slate-400 block">Wholesale Rate</span>
+                                <span class="text-base font-extrabold text-brand-800">${product.price}</span>
+                            </div>
+                            <button onclick="addToCart(${product.id})" class="bg-slate-100 hover:bg-cyanAccent-500 hover:text-slate-900 text-slate-800 p-2.5 rounded-lg transition-colors text-xs font-bold flex items-center gap-1">
+                                <i class="fa-solid fa-plus"></i> Add Quote
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Filter Category
+        function filterCategory(category) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-brand-800', 'text-white');
+                btn.classList.add('bg-slate-100', 'text-slate-700');
+            });
+            event.target.classList.remove('bg-slate-100', 'text-slate-700');
+            event.target.classList.add('bg-brand-800', 'text-white');
+
+            if (category === 'all') {
+                renderProducts(products);
+            } else {
+                const filtered = products.filter(p => p.category === category);
+                renderProducts(filtered);
+            }
+        }
+
+        // Cart Actions
+        function addToCart(productId) {
+            const item = products.find(p => p.id === productId);
+            if (item) {
+                cart.push(item);
+                updateCartUI();
+                showToast(`Added "${item.name}" to Quote List!`);
+            }
+        }
+
+        function updateCartUI() {
+            document.getElementById('cart-count').innerText = cart.length;
+            const container = document.getElementById('cart-items');
+            if (cart.length === 0) {
+                container.innerHTML = `<p class="text-xs text-slate-400 text-center py-4">No items added to quote inquiry list yet.</p>`;
+                return;
+            }
+            container.innerHTML = cart.map((item, idx) => `
+                <div class="flex justify-between items-center bg-slate-50 p-2.5 rounded-lg text-xs">
+                    <div>
+                        <p class="font-bold text-slate-800">${item.name}</p>
+                        <p class="text-slate-500">${item.price} | Min: ${item.minOrder}</p>
+                    </div>
+                    <button onclick="removeFromCart(${idx})" class="text-red-500 hover:text-red-700">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function clearCart() {
+            cart = [];
+            updateCartUI();
+        }
+
+        function submitCartInquiry() {
+            if (cart.length === 0) {
+                showToast("Your quote list is empty.");
+                return;
+            }
+            toggleCartModal(false);
+            toggleModal(true);
+            showToast("Inquiry cart attached to quotation form!");
+        }
+
+        // Modals
+        function toggleModal(show) {
+            document.getElementById('quote-modal').classList.toggle('hidden', !show);
+        }
+
+        function toggleCartModal(show = true) {
+            document.getElementById('cart-modal').classList.toggle('hidden', !show);
+        }
+
+        // Toast Helper
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').innerText = message;
+            toast.classList.remove('hidden');
+            setTimeout(() => toast.classList.add('hidden'), 3000);
+        }
+
+        // Forms Handlers
+        function handleQuoteSubmit(e) {
+            e.preventDefault();
+            showToast("PO Quote Request Received! InkCage team will contact you shortly.");
+            e.target.reset();
+        }
+
+        function handleModalSubmit(e) {
+            e.preventDefault();
+            toggleModal(false);
+            showToast("Price Quotation Request Submitted!");
+            e.target.reset();
+        }
+
+        function handleServiceSubmit(e) {
+            e.preventDefault();
+            showToast("Printer Service Appointment Requested! Tech will confirm via SMS/Call.");
+            e.target.reset();
+        }
+
+        // Ink & Rental Match Calculator
+        function calculateInkEstimate() {
+            const printer = document.getElementById('calc-printer').value;
+            const reams = parseInt(document.getElementById('calc-reams').value) || 0;
+            let estCost = 29;
+            let solution = "Desktop InkTank Rental Plan";
+
+            if (printer === 'rental_desktop') {
+                estCost = 29.00;
+                solution = "Faculty Desktop Printer Rental (Inc. Free Ink)";
+            } else if (printer === 'rental_copier') {
+                estCost = 69.00;
+                solution = "Heavy-Duty Workgroup Copier Rental";
+            } else if (printer === 'ecotank') {
+                estCost = (reams / 500) * 3.00 + 15;
+                solution = "Epson EcoTank Purchase + Ink Consumables";
+            } else {
+                estCost = 129.00;
+                solution = "Campus-wide Multi-Copier Fleet Rental";
+            }
+
+            document.getElementById('calc-solution').innerText = solution;
+            document.getElementById('calc-result').innerText = "$" + estCost.toFixed(2);
+            showToast("Calculated recommended plan!");
+        }
+
+        // Initial Load
+        window.onload = function() {
+            renderProducts(products);
+            calculateCustomRental();
+        }
+    </script>
+</body>
+</html>
